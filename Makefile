@@ -12,7 +12,6 @@ build:
 
 up:
 		docker-compose -f $(DOCK) up
-		say "EEEEEEEEEEEEEEEEEEEEEE"
 
 down:
 		docker-compose -f $(DOCK) down

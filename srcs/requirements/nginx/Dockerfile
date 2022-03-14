@@ -9,7 +9,7 @@ RUN openssl req -newkey rsa:2048 -x509 -nodes -days 365 \
 			-keyout /etc/ssl/localhost.key \
 			-subj '/C=RU/O=School21/ST=TATARSTAN/L=Kazan/CN=localhost/OU=cdionna'
 
-COPY ./default.conf /etc/nginx/sites-enabled
+COPY ./default /etc/nginx/sites-enabled/default
 
 EXPOSE 443
 
