@@ -1,0 +1,58 @@
+version: "3.3"
+
+networks:
+  cdionna:
+    driver: bridge
+
+volumes: 
+  wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/${USER}/data/wordpress
+  mariadb:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind 
+      device: /home/${USER}/data/mariadb
+
+services:
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
+    volumes:
+      - mariadb:/var/lib/mysql
+    networks:
+      - cdionna
+    restart: always
+    env_file:
+      - .env
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx
+    ports:
+      - "443:443"
+    volumes:
+      - wordpress:/var/www/html/
+    networks:
+      - cdionna
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - wordpress
+  wordpress:
+    build: ./requirements/wordpress
+    container_name: wordpress
+    volumes:
+      - wordpress:/var/www/html/
+    networks:
+      - cdionna
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - mariadb
+
