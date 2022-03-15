@@ -10,10 +10,10 @@ RUN cd /var/www && tar -xzvf wordpress-5.7.2-ru_RU.tar.gz
 RUN rm -f /var/www/wordpress-5.7.2-ru_RU.tar.gz
 RUN rm -f /var/www/wordpress/wp-config-sample.php
 
-COPY ./tools/wp-config.php /var/www/wordpress/wp-config.php
-
 RUN chown -R www-data:www-data /var/www/wordpress/* && \
 	chmod -R 775 /var/www/wordpress/*
+
+COPY ./tools/wp-config.php /var/www/wordpress/wp-config.php
 
 RUN mkdir ./run/php/ &&\
 	chmod -R 775 ./run/php/
