@@ -35,7 +35,7 @@ services:
     ports:
       - "443:443"
     volumes:
-      - wordpress:/var/www/html/
+      - wordpress:/var/www/wordpress
     networks:
       - cdionna
     restart: always
@@ -47,7 +47,7 @@ services:
     build: ./requirements/wordpress
     container_name: wordpress
     volumes:
-      - wordpress:/var/www/html/
+      - wordpress:/var/www/wordpress
     networks:
       - cdionna
     restart: always
