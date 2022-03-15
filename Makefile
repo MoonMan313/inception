@@ -25,5 +25,5 @@ fclean:
 		docker rm $$(docker ps -aq)
 		docker rmi $$(docker images -aq) -f
 		docker volume rm $$(docker volume ls -q)
-		sudo rm -rf ../../data/mariadb ../../data/wordpress
+		sudo rm -rf ./home/${USER}/data/wordpress ./home/${USER}/data/mariadb
 		docker volume rm srcs_mariadb srcs_wordpress -f
