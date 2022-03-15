@@ -11,7 +11,7 @@ build:
 		docker-compose -f $(DOCK) build
 
 up:
-		docker-compose -f $(DOCK) up
+		docker-compose -f $(DOCK) up -d
 
 down:
 		docker-compose -f $(DOCK) down
