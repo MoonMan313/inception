@@ -27,7 +27,7 @@ define( 'DB_NAME', 'wordpress' );
 define( 'DB_USER', 'cdionna' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'cdionna' );
+define( 'DB_PASSWORD', 'password' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'mariadb' );
@@ -37,7 +37,7 @@ define( 'DB_CHARSET', 'utf8' );
 
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
-define( 'WP_ALLOW_REPAIR', true );
+define('WP_ALLOW_REPAIR', true);
 /**#@+
  * Authentication Unique Keys and Salts.
  *
